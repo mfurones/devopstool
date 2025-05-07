@@ -11,8 +11,8 @@ on:
                 default: "latest"
 
 env:
-    IMAGE_NAME: dt-ubu
-    DOCKER_REPO: mfurones/devopstool
+    IMAGE_NAME: devopstool
+    DOCKER_REPO: mfurones
 
 jobs:
     j_build:
