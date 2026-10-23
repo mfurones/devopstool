@@ -35,6 +35,11 @@ Describe 'Program Installation Check' {
             $kubectl | Should -Not -BeNullOrEmpty
         }
 
+        It 'Should have psql installed' {
+            $psql = Get-Command psql -ErrorAction SilentlyContinue
+            $psql | Should -Not -BeNullOrEmpty
+        }
+
     }
 
     Context 'Based on Python Venv' {
@@ -46,6 +51,10 @@ Describe 'Program Installation Check' {
         It 'Should have Pip installed' {
             Test-Path "/opt/venv/bin/pip" | Should -Be $true
         }
+
+        It 'Should have Checkov installed' {
+            Test-Path "/opt/venv/bin/checkov" | Should -Be $true
+        }
     }
 
     Context 'CLI (Command Line Interface)' {
@@ -53,6 +62,21 @@ Describe 'Program Installation Check' {
         It 'Should have Azure CLI installed' {
             $az = Get-Command az -ErrorAction SilentlyContinue
             $az | Should -Not -BeNullOrEmpty
+        }
+
+        It 'Should have GCP CLI installed' {
+            $gcp = Get-Command gcloud -ErrorAction SilentlyContinue
+            $gcp | Should -Not -BeNullOrEmpty
+        }
+
+        It 'Should have GitHub CLI installed' {
+            $gcp = Get-Command gh -ErrorAction SilentlyContinue
+            $gcp | Should -Not -BeNullOrEmpty
+        }
+
+        It 'Should have GitLab CLI installed' {
+            $gcp = Get-Command glab -ErrorAction SilentlyContinue
+            $gcp | Should -Not -BeNullOrEmpty
         }
 
         It 'Should have Jfrog CLI installed' {
@@ -100,18 +124,43 @@ Describe 'Program Installation Check' {
     Context 'Installed on BASH (less relevant)' {
         
         It 'Should have Curl installed' {
-            $python = Get-Command curl -ErrorAction SilentlyContinue
-            $python | Should -Not -BeNullOrEmpty
+            $curl = Get-Command curl -ErrorAction SilentlyContinue
+            $curl | Should -Not -BeNullOrEmpty
         }
         
         It 'Should have Wget installed' {
-            $python = Get-Command wget -ErrorAction SilentlyContinue
-            $python | Should -Not -BeNullOrEmpty
+            $wget = Get-Command wget -ErrorAction SilentlyContinue
+            $wget | Should -Not -BeNullOrEmpty
         }
         
         It 'Should have unzip installed' {
-            $python = Get-Command unzip -ErrorAction SilentlyContinue
-            $python | Should -Not -BeNullOrEmpty
+            $unzip = Get-Command unzip -ErrorAction SilentlyContinue
+            $unzip | Should -Not -BeNullOrEmpty
+        }
+        
+        It 'Should have unzip installed' {
+            $unzip = Get-Command unzip -ErrorAction SilentlyContinue
+            $unzip | Should -Not -BeNullOrEmpty
+        }
+        
+        It 'Should have rsync installed' {
+            $rsync = Get-Command rsync -ErrorAction SilentlyContinue
+            $rsync | Should -Not -BeNullOrEmpty
+        }
+        
+        It 'Should have gnupg installed' {
+            $gnupg = Get-Command gnupg -ErrorAction SilentlyContinue
+            $gnupg | Should -Not -BeNullOrEmpty
+        }
+        
+        It 'Should have vim installed' {
+            $vim = Get-Command vim -ErrorAction SilentlyContinue
+            $vim | Should -Not -BeNullOrEmpty
+        }
+        
+        It 'Should have jq installed' {
+            $jq = Get-Command jq -ErrorAction SilentlyContinue
+            $jq | Should -Not -BeNullOrEmpty
         }
 
     }
