@@ -1,4 +1,6 @@
 param(
+    
+    [string]$version,
     [string]$versionPath = "/home/versions.txt"
 )
 
@@ -33,7 +35,7 @@ apt-get update
 
 Write-Host "--- Install Terraform ---"
 
-apt-get install -y terraform
+apt-get install -y "terraform=$($version)"
 
 Write-Host "--- Verify ---"
 
